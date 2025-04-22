@@ -1,0 +1,36 @@
+<!-- tracker-apply.component.html -->
+
+<div class="container">
+  <h2>Upload Model and Video for Detection</h2>
+
+  <div class="form-group">
+    <label for="model">Model (.pt):</label>
+    <input type="file" id="model" accept=".pt" (change)="onModelSelected($event)" />
+  </div>
+
+  <div class="form-group">
+    <label for="video">Video File:</label>
+    <input type="file" id="video" accept="video/*" (change)="onVideoSelected($event)" />
+  </div>
+
+  <button class="upload-button" (click)="uploadAssets()" [disabled]="loading">Upload and Process</button>
+
+  <p class="status-message">{{ uploadMessage }}</p>
+</div>
+
+<!-- Show a download link for the processed video -->
+<div *ngIf="processedVideoUrl" class="download-wrapper">
+  <a [href]="processedVideoUrl" download="processed_video.mp4" class="download-button">
+    Download Processed Video
+  </a>
+  <p *ngIf="uploadMessage">{{ uploadMessage }}</p>
+</div>
+
+
+<!-- Overlay with loading spinner while processing -->
+<div class="overlay" *ngIf="loading">
+  <div class="spinner-modal">
+    <div class="spinner"></div>
+    <p>Uploading and processing, please wait...</p>
+  </div>
+</div>

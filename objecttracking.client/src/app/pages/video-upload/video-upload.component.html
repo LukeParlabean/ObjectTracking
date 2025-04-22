@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Upload Video</h2>
+
+  <div class="form-group">
+    <label for="videoFile">Select Video:</label>
+    <input type="file"
+           id="videoFile"
+           (change)="onFileSelected($event)"
+           [disabled]="loading" />
+  </div>
+
+  <div class="form-group">
+    <label for="nFrames">Number of Frames:</label>
+    <input type="number"
+           id="nFrames"
+           [(ngModel)]="nFrames"
+           min="1"
+           [disabled]="loading" />
+  </div>
+
+  <button class="upload-button"
+          (click)="uploadFile()"
+          [disabled]="loading || !selectedFile">
+    {{ loading ? 'Uploading...' : 'Upload' }}
+  </button>
+
+  <p class="status-message">{{ uploadMessage }}</p>
+</div>
+
+<!-- Modal-style spinner overlay -->
+<div *ngIf="loading" class="overlay">
+  <div class="spinner-modal">
+    <div class="spinner"></div>
+    <p>Uploading... Please wait.</p>
+  </div>
+</div>

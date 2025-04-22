@@ -1,0 +1,14 @@
+
+//# Setup git clone https://github.com/ultralytics/yolov5
+//# cd yolov5
+//# pip install -r requirements.txt
+
+//# YOLO (You Only Look Once) is an object detection model that learns to predict both bounding boxes and class labels directly 
+//# from input images in a single pass through a neural network. During training, each image is paired with a corresponding text 
+//# file that contains annotations in YOLO format, where each line specifies the class ID and the normalized coordinates of the 
+//# object’s bounding box (center x, center y, width, and height). The model uses a convolutional neural network backbone to extract 
+//# features from the image, followed by a detection head that predicts bounding box coordinates, objectness scores (how likely a 
+//# box contains an object), and class probabilities. The training process involves calculating a combined loss that includes 
+//# localization loss (for box accuracy), confidence loss (object presence), and classification loss (correct class prediction). 
+//# Using this loss, the model updates its weights through backpropagation and gradient descent over many epochs. After training, 
+//# the best-performing model (based on validation loss) is saved and can be used to detect objects in new, unseen images.

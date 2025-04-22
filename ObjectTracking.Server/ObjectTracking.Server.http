@@ -1,0 +1,6 @@
+@ObjectTracking.Server_HostAddress = http://localhost:5096
+
+GET {{ObjectTracking.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,24 @@
+<div class="labeler-container">
+  <canvas #canvas
+          (mousedown)="onMouseDown($event)"
+          (mousemove)="onMouseMove($event)"
+          (mouseup)="onMouseUp()">
+  </canvas>
+
+  <div class="controls">
+    <button (click)="saveLabel()">✅ Save Label</button>
+    <button (click)="markNoObject()">❌ Object Not Present</button>
+    <button (click)="undoLastBox()">↩️ Undo Box</button>
+  </div>
+
+  <p>Frame {{ currentFrameIndex + 1 }} of {{ frames.length }}</p>
+</div>
+
+
+<!-- Modal-style spinner overlay with training progress -->
+<div *ngIf="loading" class="overlay">
+  <div class="spinner-modal">
+    <div class="spinner"></div>
+    <p>{{ trainingMessage }}</p>
+  </div>
+</div>
